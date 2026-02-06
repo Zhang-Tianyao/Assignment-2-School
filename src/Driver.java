@@ -28,8 +28,8 @@ public class Driver {
         school.sortPersonList(Comparator.comparing(Person::getLastname));
         System.out.println(school);
         System.out.println("\n====== Sort by GPA  ======");
-        school.sortStudentList(Comparator.comparing(Student::getGPA));
-        school.sortPersonList(Comparator.comparing(p->((Student)p).getGPA()));
+        school.sortStudentList(Comparator.comparing(Student::getGPA).reversed());
+        school.sortPersonList(Comparator.<Person, Double>comparing(p->((Student)p).getGPA()).reversed());
         System.out.println(school);
     }
 }
